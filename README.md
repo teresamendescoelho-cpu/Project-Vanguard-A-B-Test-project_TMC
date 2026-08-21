@@ -202,7 +202,14 @@ The dashboard is designed to make the treatment-versus-control comparison easy t
 
 ---
 
----
+
+# 📚 Project Resources
+
+- 📓 [Jupyter Notebook](notebooks/Marketing_AB_Test_Analysis.ipynb)
+- 📊 [Tableau Workbook](Project-Vanguard-A-B-Test-project_TMC.twb)
+- 📚 [Sources & References](SOURCES.md)
+- 📦 [Python Dependencies](requirements.txt)
+- 🗂️ [Project Management — Trello](https://trello.com/b/UhyhqfFE/vanguard-a-b-test-project-2)
 
 
 # 💡 Key Findings
