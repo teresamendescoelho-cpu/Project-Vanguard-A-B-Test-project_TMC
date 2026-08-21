@@ -1,0 +1,14 @@
+# Core data analysis
+pandas
+numpy
+
+# Data visualization
+matplotlib
+seaborn
+
+# Statistical analysis
+scipy
+statsmodels
+
+# Jupyter
+jupyter
