@@ -185,7 +185,7 @@ This dashboard provides additional behavioural insight into how advertising expo
 
 ## Dashboard 3 — A/B Test Group Performance
 
-This dashboard focuses specifically on the comparison between the **Ad** and **PSA** experimental groups.
+This third dashboard focuses specifically on the comparison between the **Ad** and **PSA** experimental groups.
 
 ### Visualizations
 
