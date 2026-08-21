@@ -263,9 +263,11 @@ Project-Vanguard-A-B-Test-project_TMC/
 ├── notebooks/
 │   └── Marketing_AB_Test_Analysis.ipynb
 │
+├── README.md
+├── SOURCES.md
+├── requirements.txt
 ├── .gitignore
-├── Tableau workbook / packaged workbook
-└── README.md
+└── Project-Vanguard-A-B-Test-project_TMC.twb
 ```
 
 ---
@@ -273,9 +275,12 @@ Project-Vanguard-A-B-Test-project_TMC/
 # 📌 Deliverables
 
 - 📓 **Jupyter Notebook** — complete data analysis
-- 📊 **Tableau Workbook / Packaged Workbook** — dashboards and visual analysis
+- 📊 **Tableau Workbook / Packaged Workbook** — three dashboards and visual analysis
 - 📝 **README.md** — project documentation
+- 📚 **SOURCES.md** — sources, references and project resources
+- 📦 **requirements.txt** — Python/Jupyter dependencies
 - 🎤 **Presentation** — maximum 10-minute presentation summarizing the analysis and recommendation
+
 
 ---
 
