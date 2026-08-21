@@ -183,12 +183,30 @@ This dashboard provides additional behavioural insight into how advertising expo
 
 ---
 
+## Dashboard 3 — A/B Test Group Performance
+
+This dashboard focuses specifically on the comparison between the **Ad** and **PSA** experimental groups.
+
+### Visualizations
+
+- Conversion Rate by Group
+- Conversion Rate Difference by Group
+- Relative Improvement
+- Total Ads by Group
+
+The dashboard makes the treatment-versus-control comparison clear and highlights the performance advantage of the Ad group.
+
+---
+
+
 # 💡 Key Findings
 
 1. **The Ad group had a higher conversion rate:** 2.55% versus 1.79% for PSA.
 2. **The absolute improvement was 0.77 percentage points.**
 3. **The relative improvement was 43.09%.**
 4. **The difference was statistically significant:** Z = 7.3701 and p = 1.7053 × 10⁻¹³.
+5. **The hourly analysis shows that campaign performance varies considerably across the day, providing opportunities for further optimisation.**
+
 
 ---
 
