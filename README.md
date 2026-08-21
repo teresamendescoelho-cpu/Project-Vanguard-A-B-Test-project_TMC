@@ -145,9 +145,12 @@ Statistical significance is considered separately from practical or business sig
 
 Since the p-value is substantially below 0.05, there is **statistically significant evidence that the conversion rates differ between the Ad and PSA groups**.
 
+
 ---
 
 # 📊 5. Tableau Dashboards
+
+Three Tableau dashboards were created to communicate the A/B test results from different business perspectives.
 
 ## Dashboard 1 — Marketing A/B Test Performance Dashboard
 
@@ -166,35 +169,38 @@ The main dashboard provides an executive overview of the experiment.
 - Users by Experimental Group
 - Conversion Rate by Most Ads Day
 
+This dashboard provides a concise stakeholder-level overview of the main A/B test results.
+
 ---
 
 ## Dashboard 2 — Advertising Performance by Hour
 
-A second dashboard analyses campaign performance throughout the day.
+This dashboard analyses campaign performance throughout the day.
 
-It includes:
+### Visualizations
 
 - Total Ads by Hour
 - Conversion Rate by Hour
 - Conversion Rate Difference by Hour
 - Relative Improvement by Hour
 
-This dashboard provides additional behavioural insight into how advertising exposure and conversion performance vary across different hours.
+This dashboard provides additional behavioural insight into advertising exposure and conversion performance across different hours.
 
 ---
 
 ## Dashboard 3 — A/B Test Group Performance
 
-This third dashboard focuses specifically on the comparison between the **Ad** and **PSA** experimental groups.
+This dashboard focuses specifically on comparing the **Ad** and **PSA** experimental groups.
 
 ### Visualizations
 
 - Conversion Rate by Group
-- Conversion Rate Difference by Group
-- Relative Improvement
-- Total Ads by Group
+- Users by Experimental Group
+- Campaign performance comparison between Ad and PSA
 
-The dashboard makes the treatment-versus-control comparison clear and highlights the performance advantage of the Ad group.
+The dashboard is designed to make the treatment-versus-control comparison easy to interpret and reinforce the main conversion-rate finding.
+
+---
 
 ---
 
