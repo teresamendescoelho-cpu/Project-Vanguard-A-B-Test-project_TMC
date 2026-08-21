@@ -16,8 +16,8 @@ The analysis combines **exploratory data analysis, campaign performance metrics,
 
 The experiment contains two groups:
 
-* **Ad group** — users exposed to the advertising campaign.
-* **PSA group** — control group, where users were shown a public service announcement instead of the advertisement.
+- **Ad group** — users exposed to the advertising campaign.
+- **PSA group** — control group, where users were shown a public service announcement instead of the advertisement.
 
 The main KPI is the **conversion rate**, representing the proportion of users who purchased the product.
 
@@ -25,40 +25,40 @@ The main KPI is the **conversion rate**, representing the proportion of users wh
 
 ## 🗂️ Dataset
 
-The dataset contains one row per user and includes information about:
+The dataset contains one row per user and includes:
 
-| Column          | Description                                    | Purpose                |
-| --------------- | ---------------------------------------------- | ---------------------- |
-| `user id`       | Unique identifier for each user                | Data quality checks    |
-| `test group`    | Experimental group: `ad` or `psa`              | Main A/B test variable |
-| `converted`     | Whether the user purchased the product         | Main outcome / KPI     |
-| `total ads`     | Number of advertisements seen by the user      | Behaviour analysis     |
-| `most ads day`  | Day when the user saw the most advertisements  | EDA / Tableau          |
-| `most ads hour` | Hour when the user saw the most advertisements | EDA / Tableau          |
+| Column | Description | Purpose |
+|---|---|---|
+| `user id` | Unique identifier for each user | Data quality checks |
+| `test group` | Experimental group: `ad` or `psa` | Main A/B test variable |
+| `converted` | Whether the user purchased the product | Main outcome / KPI |
+| `total ads` | Number of advertisements seen by the user | Behaviour analysis |
+| `most ads day` | Day when the user saw the most advertisements | EDA / Tableau |
+| `most ads hour` | Hour when the user saw the most advertisements | EDA / Tableau |
 
 ---
 
-## 🔎 Project Workflow
+# 🔎 Project Workflow
 
 The analysis follows four main stages:
 
-### 1. Data Exploration & Cleaning
+## 1. Data Exploration & Cleaning
 
-The dataset is inspected and prepared for analysis by:
+The dataset was inspected and prepared for analysis by:
 
-* Loading the data using Pandas
-* Inspecting the dataset structure
-* Checking the number of rows and columns
-* Reviewing data types
-* Checking for missing values
-* Checking for duplicated user IDs
-* Reviewing unique values in the experimental and conversion variables
-* Converting variables to appropriate data types where necessary
-* Removing technical columns where applicable
+- Loading the data using Pandas
+- Inspecting the dataset structure
+- Checking the number of rows and columns
+- Reviewing data types
+- Checking for missing values
+- Checking for duplicated user IDs
+- Reviewing unique values in the experimental and conversion variables
+- Converting variables to appropriate data types where necessary
+- Removing technical columns where applicable
 
 ### Exploratory Analysis
 
-The following questions are addressed:
+The analysis addresses:
 
 1. How many users are included in the dataset?
 2. How many users are in the Ad group and PSA group?
@@ -67,53 +67,31 @@ The following questions are addressed:
 
 ### Visualizations
 
-The exploratory analysis includes:
-
-* Number of users by experimental group
-* Conversion rate by experimental group
-* Distribution of total advertisements seen per user
+- Number of users by experimental group
+- Conversion rate by experimental group
+- Distribution of total advertisements seen per user
 
 ---
 
-## 📈 2. Campaign Performance
+# 📈 2. Campaign Performance
 
 The PSA group is treated as the **control group**, while the Ad group is treated as the **test/treatment group**.
 
-The following metrics are calculated for both groups:
-
-### Number of Users
-
-Total number of users in each experimental group.
-
-### Number of Conversions
-
-Number of users for whom:
-
-`converted = True`
-
 ### Conversion Rate
-
-Conversion rate is calculated as:
 
 `Conversions / Total Users`
 
 ### Conversion Rate Difference
 
-The observed difference between the two groups is calculated as:
-
 `Ad Conversion Rate − PSA Conversion Rate`
 
 ### Relative Improvement
 
-The relative improvement of the Ad group compared with the PSA group is calculated as:
-
 `(Ad Rate − PSA Rate) / PSA Rate × 100`
-
-These metrics are used to determine whether the advertising campaign appears promising based on descriptive statistics.
 
 ---
 
-## 🧪 3. Hypothesis Testing
+# 🧪 3. Hypothesis Testing
 
 The main statistical question is whether the conversion rate differs between the Ad and PSA groups.
 
@@ -125,164 +103,166 @@ The main statistical question is whether the conversion rate differs between the
 
 > The conversion rate is different between the Ad and PSA groups.
 
-### Statistical Test
+A **two-proportion z-test** was used to compare the proportions of converted users between the two independent experimental groups.
 
-A **two-proportion z-test** is used because the analysis compares the proportions of converted users between two independent experimental groups.
+**Significance level: α = 0.05**
 
-The significance level is:
+Decision rule:
 
-**α = 0.05**
+- If `p-value < 0.05` → reject H₀.
+- If `p-value ≥ 0.05` → fail to reject H₀.
 
-The analysis reports:
-
-* Test statistic
-* P-value
-* Statistical decision
-* Plain-English interpretation
-
-The decision rule is:
-
-* If `p-value < 0.05` → reject H₀.
-* If `p-value ≥ 0.05` → fail to reject H₀.
-
-Importantly, statistical significance is considered separately from practical or business significance.
+Statistical significance is considered separately from practical or business significance.
 
 ---
 
-## 📊 4. Tableau Dashboard
+# 📊 4. Results
 
-A Tableau dashboard is created to communicate the main findings to a non-technical stakeholder.
+## Campaign Performance
 
-### Dashboard Components
+| Metric | Ad | PSA |
+|---|---:|---:|
+| Users | **564,577** | **23,524** |
+| Conversions | **14,423** | **420** |
+| Conversion Rate | **2.5547%** | **1.7854%** |
 
-The dashboard includes:
+### Conversion Rate Difference
 
-#### KPIs
+**+0.7692 percentage points** (approximately **+0.77 p.p.**)
 
-* Total users
-* Conversion rate — Ad group
-* Conversion rate — PSA group
-* Difference between conversion rates
+### Relative Improvement
 
-#### Visualizations
+**+43.09%** relative improvement for the Ad group compared with the PSA control group.
 
-* Conversion rate by experimental group
-* Users by experimental group
-* Conversion rate by most ads day
+## Statistical Test Results
 
-#### Interactivity
+| Statistic | Result |
+|---|---:|
+| Z-statistic | **7.3701** |
+| P-value | **1.7053 × 10⁻¹³** |
+| Significance level | **0.05** |
+| Decision | **Reject H₀** |
 
-At least one interactive filter is included using:
-
-* Most ads day, or
-* Most ads hour
-
-The dashboard is designed to allow stakeholders to understand the campaign performance without needing to read the Python analysis.
-
----
-
-## 💡 Key Findings
-
-> **This section will be updated after the analysis is completed.**
-
-The final analysis will report:
-
-* Total number of users
-* Number of Ad and PSA users
-* Overall conversion rate
-* Ad conversion rate
-* PSA conversion rate
-* Conversion rate difference
-* Relative improvement
-* Z-test statistic
-* P-value
-* Statistical conclusion
+Since the p-value is substantially below 0.05, there is **statistically significant evidence that the conversion rates differ between the Ad and PSA groups**.
 
 ---
 
-## 🏁 Final Recommendation
+# 📊 5. Tableau Dashboards
 
-> **This section will be completed after the statistical analysis and Tableau dashboard are finished.**
+## Dashboard 1 — Marketing A/B Test Performance Dashboard
 
-The final recommendation will answer three key questions:
+The main dashboard provides an executive overview of the experiment.
 
-1. Did the Ad group have a higher conversion rate than the PSA group?
-2. Was the observed difference statistically significant?
-3. Based on the evidence, should the advertising campaign be continued?
+### KPIs
 
-The recommendation will distinguish between **statistical significance** and **practical/business importance**.
+- Total Users
+- Ad Conversion Rate
+- PSA Conversion Rate
+- Conversion Rate Difference
 
----
+### Visualizations
 
-## 🛠️ Tools & Technologies
-
-* **Python**
-* **Pandas** — data manipulation and analysis
-* **NumPy** — numerical calculations
-* **Matplotlib** — data visualization
-* **Seaborn** — exploratory visualization
-* **SciPy / Statsmodels** — statistical hypothesis testing
-* **Jupyter Notebook** — analysis environment
-* **Tableau** — dashboard and business visualization
-* **Git & GitHub** — version control and project management
+- Conversion Rate by Experimental Group
+- Users by Experimental Group
+- Conversion Rate by Most Ads Day
 
 ---
 
-## 📁 Project Structure
+## Dashboard 2 — Advertising Performance by Hour
+
+A second dashboard analyses campaign performance throughout the day.
+
+It includes:
+
+- Total Ads by Hour
+- Conversion Rate by Hour
+- Conversion Rate Difference by Hour
+- Relative Improvement by Hour
+
+This dashboard provides additional behavioural insight into how advertising exposure and conversion performance vary across different hours.
+
+---
+
+# 💡 Key Findings
+
+1. **The Ad group had a higher conversion rate:** 2.55% versus 1.79% for PSA.
+2. **The absolute improvement was 0.77 percentage points.**
+3. **The relative improvement was 43.09%.**
+4. **The difference was statistically significant:** Z = 7.3701 and p = 1.7053 × 10⁻¹³.
+
+---
+
+# 🏁 Final Recommendation
+
+Based on the A/B test results, **the advertising campaign should be continued**.
+
+The Ad group achieved a higher conversion rate than the PSA control group, with **2.55% versus 1.79%**. This represents a **0.77 percentage-point increase** and a **43.09% relative improvement**.
+
+The observed difference was statistically significant, with a p-value substantially below the 0.05 significance threshold.
+
+However, statistical significance should be distinguished from practical business impact. The company should continue monitoring campaign performance and compare the additional conversions generated with the **cost of advertising** to determine whether the campaign delivers sufficient return on investment.
+
+---
+
+# 🛠️ Tools & Technologies
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Matplotlib**
+- **Seaborn**
+- **SciPy / Statsmodels**
+- **Jupyter Notebook**
+- **Tableau**
+- **Git & GitHub**
+
+---
+
+# 📁 Project Structure
 
 ```text
 Project-Vanguard-A-B-Test-project_TMC/
 │
 ├── data/
-│   └── marketing_ab_testing.csv
+│   ├── marketing_AB.csv
+│   └── marketing_AB_clean.csv
 │
 ├── notebooks/
-│   └── marketing_ab_test_analysis.ipynb
+│   └── Marketing_AB_Test_Analysis.ipynb
 │
-├── tableau/
-│   └── marketing_ab_test_dashboard.twbx
-│
-├── presentation/
-│   └── marketing_ab_test_presentation.pdf
-│
-├── README.md
-└── .gitignore
+├── .gitignore
+├── Tableau workbook / packaged workbook
+└── README.md
 ```
 
-*The exact file structure may be updated as the project develops.*
+---
+
+# 📌 Deliverables
+
+- 📓 **Jupyter Notebook** — complete data analysis
+- 📊 **Tableau Workbook / Packaged Workbook** — dashboards and visual analysis
+- 📝 **README.md** — project documentation
+- 🎤 **Presentation** — maximum 10-minute presentation summarizing the analysis and recommendation
 
 ---
 
-## 📌 Deliverables
+# 📚 Skills Demonstrated
 
-The completed project will contain:
-
-* 📓 **Jupyter Notebook** — complete data analysis
-* 📊 **Tableau Workbook / Packaged Workbook** — final dashboard
-* 📝 **README.md** — project documentation, methodology, findings and recommendation
-* 🎤 **Presentation** — maximum 10-minute presentation summarizing the analysis and recommendation
-
----
-
-## 📚 Skills Demonstrated
-
-This project demonstrates practical Data Analytics skills including:
-
-* Data cleaning
-* Exploratory Data Analysis (EDA)
-* Data visualization
-* KPI calculation
-* A/B testing
-* Statistical hypothesis testing
-* Interpretation of p-values
-* Business-oriented data analysis
-* Tableau dashboard development
-* Data storytelling
-* Evidence-based business recommendations
+- Data cleaning
+- Exploratory Data Analysis (EDA)
+- Data visualization
+- KPI calculation
+- A/B testing
+- Statistical hypothesis testing
+- Interpretation of p-values
+- Business-oriented data analysis
+- Tableau dashboard development
+- Data storytelling
+- Evidence-based business recommendations
 
 ---
 
-## 👩‍💻 Author
+# 👩‍💻 Author
 
 **Teresa Mendes Coelho**
 
@@ -294,7 +274,7 @@ GitHub: [Teresa Mendes Coelho](https://github.com/teresamendescoelho-cpu)
 
 ## 📄 Project Context
 
-This project was completed as part of the **Ironhack Data Analytics Bootcamp** and follows the provided Marketing A/B Test project brief.
+This project was completed as part of the **Ironhack Data Analytics Bootcamp** and follows the Marketing A/B Test project brief.
 
 The project objective is to move from:
 
