@@ -212,6 +212,8 @@ The dashboard is designed to make the treatment-versus-control comparison easy t
 - 🗂️ [Project Management — Trello](https://trello.com/b/UhyhqfFE/vanguard-a-b-test-project-2)
 
 
+---
+
 # 💡 Key Findings
 
 1. **The Ad group had a higher conversion rate:** 2.55% versus 1.79% for PSA.
